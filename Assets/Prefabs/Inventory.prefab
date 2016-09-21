@@ -39,7 +39,7 @@ GameObject:
   - 212: {fileID: 212000010999058982}
   m_Layer: 0
   m_Name: Life 2
-  m_TagString: Untagged
+  m_TagString: Life
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - 212: {fileID: 212000011365755156}
   m_Layer: 0
   m_Name: Life 1
-  m_TagString: Untagged
+  m_TagString: Life
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   - 212: {fileID: 212000012845041446}
   m_Layer: 0
   m_Name: Life 0
-  m_TagString: Untagged
+  m_TagString: Life
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

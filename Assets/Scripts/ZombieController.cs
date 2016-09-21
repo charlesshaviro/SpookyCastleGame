@@ -33,14 +33,15 @@ public class ZombieController : MonoBehaviour {
 	void Update () {
 
 		Grounded = Physics2D.Linecast (transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
-
-		if (transform.position.x > (xPos + xWidth)) {
+		if (transform.position.x > (xPos + xWidth) && direction == 1) {
 			Flip ();
-		} else if (transform.position.x < xPos) {
+			direction = -1;
+		} else if (transform.position.x < xPos && direction == -1) {
 			Flip ();
-		}
+			direction = 1;
+		} 
 
-		movement = Vector3.right * direction * 2.0f * Time.deltaTime;
+		movement = Vector3.right * 2.0f * Time.deltaTime;
 		transform.Translate (movement);
 	}
 
@@ -50,7 +51,6 @@ public class ZombieController : MonoBehaviour {
 		Vector3 TheScale = transform.localScale;
 		TheScale.x *= -1;
 		transform.localScale = TheScale;
-
-
 	}
+
 }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 // Awkward and buggy when going against movement of moving platform?/when moving down
 // Ground moves up hierarchy when on different platform?
 // Putting different colliders on same object to prevent sticky platforms?
-// Coroutine is messy for Fade - suggestins?
+// Coroutine is messy for Fade - suggestions?
+// Monster going of screen????
 
 
 public class PlayerController : MonoBehaviour {
@@ -25,9 +26,10 @@ public class PlayerController : MonoBehaviour {
 	public GameObject myInventory;
 	private bool faded = false;
 
-	private bool damageBuffer = false;
+	public int livesLeft;
+	public bool lostLife;
 
-	public Text text;
+	public Vector3 originalPosition;
 
 
 	void Awake(){
@@ -36,7 +38,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		originalPosition = transform.position;
+		livesLeft = 3;
+		lostLife = false;
 	}
 	
 	// Update is called once per frame
@@ -53,17 +57,27 @@ public class PlayerController : MonoBehaviour {
 				StopCoroutine (Fade ());
 			}
 		}
-
-		if (damageBuffer) {
-			text.text = "HIT!!!!";
-			float t = 0.0f;
-			while (t < 2.0f) {
-				t += Time.deltaTime;
-			}
-			damageBuffer = false;
-			text.text = "not hit ...";
+		if (lostLife == true) {
+			LoseALife ();
+			lostLife = false;
 		}
 	}
+
+	void LoseALife(){
+		GameObject[] lives = GameObject.FindGameObjectsWithTag ("Life");
+		if (livesLeft == 3) {
+			lives[2].SetActive (false);
+		} else if (livesLeft == 2) {
+			lives[1].SetActive (false);
+		} else if (livesLeft == 1) {
+			lives[0].SetActive (false);
+		} else {
+			//lose the game
+		}
+		livesLeft--;
+	}
+
+
 
 	void FixedUpdate(){
 		float H = Input.GetAxis ("Horizontal");
@@ -108,12 +122,22 @@ public class PlayerController : MonoBehaviour {
 			gameObject.GetComponent<Inventory> ().Keys [KeyNumber] = true;
 			Destroy (other.gameObject);
 			myInventory.SetActive (true);
-		} else if (other.gameObject.CompareTag ("Monster") && !damageBuffer) {
-			//lose a heart
-			damageBuffer = true;
+		} else if (other.gameObject.CompareTag ("Monster") || other.gameObject.CompareTag("MonsterTrigger")) {
+			transform.position = originalPosition;
+			lostLife = true;
 
 		}
 	}
+
+//	void OnTriggerStay2D(Collider2D other){
+//		if (other.gameObject.CompareTag ("Monster")) {
+//			transform.position -= new Vector3 (3f, 0, 0);
+//
+//		}
+//	}
+
+
+
 
 	IEnumerator Fade(){
 		GameObject cage = GameObject.FindGameObjectWithTag ("Cage");

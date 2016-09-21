@@ -24,6 +24,7 @@ TagManager:
   - Coin
   - MonsterTrigger
   - Monster
+  - Life
   layers:
   - Default
   - TransparentFX
@@ -78,4 +79,7 @@ TagManager:
     locked: 0
   - name: Cage
     uniqueID: 3713885081
+    locked: 0
+  - name: Monster
+    uniqueID: 4158417463
     locked: 0

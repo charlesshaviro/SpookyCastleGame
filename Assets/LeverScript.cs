@@ -31,6 +31,8 @@ public class LeverScript : MonoBehaviour {
 			GameObject monster = GameObject.FindGameObjectWithTag ("MonsterTrigger");
 			if (monster != null) {
 				//make him bigger
+				monster.transform.localScale = new Vector3(10f, 10f, 0);
+				monster.transform.position += new Vector3 (0f, 0.7f, 0);
 			}
 		}
 	}
