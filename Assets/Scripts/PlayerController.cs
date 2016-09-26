@@ -2,13 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
-//Questions
-// Awkward and buggy when going against movement of moving platform?/when moving down
-// Ground moves up hierarchy when on different platform?
 // Putting different colliders on same object to prevent sticky platforms?
 // Coroutine is messy for Fade - suggestions?
 // Monster going of screen????
-
 
 public class PlayerController : MonoBehaviour {
 
@@ -23,67 +19,97 @@ public class PlayerController : MonoBehaviour {
 	private bool Grounded = false;
 	private Rigidbody2D rb2d;
 
-	public GameObject myInventory;
-	private bool faded = false;
+	public GameObject Life1, Life2, Life3;
 
-	public int livesLeft;
-	public bool lostLife;
+	[HideInInspector] public int livesLeft;
+	[HideInInspector] public bool lostLife;
 
 	public Vector3 originalPosition;
+	[HideInInspector] public bool hasKey;
 
+	public AudioClip DyingSound, KeySound;
 
 	void Awake(){
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
-
-	// Use this for initialization
+		
 	void Start () {
 		originalPosition = transform.position;
 		livesLeft = 3;
 		lostLife = false;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		Grounded = Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+		// Platform and movement mechanics
+		RaycastHit2D hit = Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+		Grounded = (hit.collider != null);
+
 		if (Input.GetButtonDown ("Jump") && Grounded) {
 			Jump = true;
 		}
-		GameObject[] coinList = GameObject.FindGameObjectsWithTag ("Coin");
-		GameObject cage = GameObject.FindGameObjectWithTag ("Cage");
-		if (coinList.Length == 0) {
-			StartCoroutine (Fade ());
-			if (cage == null) {
-				StopCoroutine (Fade ());
-			}
+
+		if (Grounded) {
+			CheckGround (hit.collider);
+		} else {
+			transform.parent = null;
 		}
+
 		if (lostLife == true) {
 			LoseALife ();
 			lostLife = false;
 		}
+
 	}
 
-	void LoseALife(){
-		GameObject[] lives = GameObject.FindGameObjectsWithTag ("Life");
-		if (livesLeft == 3) {
-			lives[2].SetActive (false);
-		} else if (livesLeft == 2) {
-			lives[1].SetActive (false);
-		} else if (livesLeft == 1) {
-			lives[0].SetActive (false);
-		} else {
-			//lose the game
+	/* Checks ground and player interaction */
+	void CheckGround(Collider2D collider){
+
+		// If jumping off a platform, reset parent to null
+		if (collider == null || Jump) {
+			transform.parent = null;
+		} else if (collider.CompareTag ("StaticPlatform")) {
+			transform.parent = null; 
+		} else if (collider.CompareTag ("MoveHorizontal")) {
+			if (Input.GetAxis ("Horizontal") == 0) {
+				transform.parent = collider.transform;
+			} else {
+				transform.parent = null;
+			}
+		} else if (collider.CompareTag ("MoveVertical")) {
+			transform.parent = collider.gameObject.transform;
+		} else if (collider.CompareTag ("Offscreen")) {
+			lostLife = true;
 		}
-		livesLeft--;
 	}
 
 
+	/* Tracks number of lives, updates UI */
+	void LoseALife(){
+		if (livesLeft == 3) {
+			Life3.SetActive (false);
+		} else if (livesLeft == 2) {
+			Life2.SetActive (false);
+		} else if (livesLeft == 1) {
+			Life1.SetActive (false);
+		} else {
+			
+		}
 
+		AudioSource.PlayClipAtPoint (DyingSound, transform.position);
+		livesLeft--;
+		transform.position = originalPosition;
+	}
+
+
+	/* Player movement mechanics */
 	void FixedUpdate(){
 		float H = Input.GetAxis ("Horizontal");
+	
 		if (H * rb2d.velocity.x < MaxSpeed)
-		{
+		{	
 			rb2d.AddForce (Vector2.right * H * MoveForce);
+
 		}
 
 		if (Mathf.Abs(rb2d.velocity.x) > MaxSpeed)
@@ -105,6 +131,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	/* Flips player to face direction of movement */
 	void Flip(){
 		FacingRight = !FacingRight;
 		Vector3 TheScale = transform.localScale;
@@ -113,53 +140,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-//		if (other.gameObject.CompareTag ("MovingPlatform")) {
-//			debug.text = "HERE";
-//			transform.parent = other.transform;
-//		}
 		if (other.gameObject.CompareTag ("Key")) {
-			int KeyNumber = other.gameObject.GetComponent<KeyController> ().KeyIndex;
-			gameObject.GetComponent<Inventory> ().Keys [KeyNumber] = true;
+			hasKey = true;
+			AudioSource.PlayClipAtPoint (KeySound, transform.position);
 			Destroy (other.gameObject);
-			myInventory.SetActive (true);
 		} else if (other.gameObject.CompareTag ("Monster") || other.gameObject.CompareTag("MonsterTrigger")) {
-			transform.position = originalPosition;
 			lostLife = true;
-
 		}
 	}
-
-//	void OnTriggerStay2D(Collider2D other){
-//		if (other.gameObject.CompareTag ("Monster")) {
-//			transform.position -= new Vector3 (3f, 0, 0);
-//
-//		}
-//	}
-
-
-
-
-	IEnumerator Fade(){
-		GameObject cage = GameObject.FindGameObjectWithTag ("Cage");
-		while (cage!=null) {
-			for (float t = 0f; t < 1.0f; t += Time.deltaTime) {
-				if (cage != null) {
-					cage.GetComponent<Renderer> ().material.color = Color.Lerp (Color.white, Color.black, t);
-				}
-
-				yield return new WaitForSeconds (.01f);
-
-			}
-			Destroy (cage.gameObject);
-			break;
-		}
-
-
-	}
-
-//	void OnTriggerExit2D(Collider2D other){
-//		if (other.gameObject.CompareTag ("MovingPlatform")) {
-//			transform.parent = null;
-//		}
-//	}
 }
+

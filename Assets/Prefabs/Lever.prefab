@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FacingOff: 1
+  LeverSound: {fileID: 8300000, guid: 26548568929f14af4a7487404f7e6304, type: 3}
+  MonsterSound: {fileID: 8300000, guid: 1bd404142b17f49ca82de54f2aeaa417, type: 3}
   key: {fileID: 0}
 --- !u!212 &212000011715088916
 SpriteRenderer:

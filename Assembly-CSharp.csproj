@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{84D6A75C-5412-872B-6476-5572FFEB81F5}</ProjectGuid>
+    <ProjectGuid>{258D5B3B-3655-AC0E-D51B-D2AD953C8E9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,18 +45,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FallingPlatformScript.cs" />
-     <Compile Include="Assets\LeverScript.cs" />
+     <Compile Include="Assets\CageController.cs" />
+     <Compile Include="Assets\MenuScript.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\CoinPickup.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\EasterEggDoor.cs" />
+     <Compile Include="Assets\Scripts\FallingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\KeyController.cs" />
      <Compile Include="Assets\Scripts\KeyPickup.cs" />
+     <Compile Include="Assets\Scripts\LeverScript.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
      <Compile Include="Assets\Scripts\PlatformController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SimplePlatformController.cs" />
+     <Compile Include="Assets\Scripts\Test Scripts\Controller2D.cs" />
+     <Compile Include="Assets\Scripts\Test Scripts\PlatformControl.cs" />
+     <Compile Include="Assets\Scripts\Test Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Test Scripts\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\Test Scripts\RaycastController.cs" />
      <Compile Include="Assets\Scripts\ZombieController.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>

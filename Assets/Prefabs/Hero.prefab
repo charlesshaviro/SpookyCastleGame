@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011639237772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012587546026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.9, y: -6.95, z: 0}
+  m_LocalPosition: {x: -15.9, y: -6.95, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -100,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010403935400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9890461, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.11, y: -0.57, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000012728607280}
@@ -134,7 +134,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.18, y: -0.24}
+  m_Offset: {x: -0.09, y: -0.28}
   serializedVersion: 2
   m_Radius: 0.28
 --- !u!60 &60000010470655950
@@ -151,14 +151,17 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -0.42542055, y: 0.24894406}
-      - {x: -0.25441647, y: 0.39519525}
-      - {x: 0.11673641, y: 0.32691908}
-      - {x: 0.10338497, y: -0.30899286}
-      - {x: 0.002652804, y: -0.5007215}
-      - {x: -0.46948242, y: -0.5211034}
-      - {x: -0.5461056, y: -0.31659278}
-      - {x: -0.4076624, y: -0.13494945}
+    - - {x: -0.2685089, y: 0.23997784}
+      - {x: -0.16475296, y: 0.32794762}
+      - {x: 0.08341646, y: 0.47281146}
+      - {x: 0.21536636, y: 0.51969624}
+      - {x: 0.28277206, y: 0.33793974}
+      - {x: 0.1381731, y: -0.056204796}
+      - {x: 0.17063284, y: -0.38520718}
+      - {x: 0.007135868, y: -0.5276208}
+      - {x: -0.38878536, y: -0.49868727}
+      - {x: -0.42505932, y: -0.3165927}
+      - {x: -0.2821331, y: -0.17081499}
 --- !u!95 &95000012627495628
 Animator:
   serializedVersion: 3
@@ -216,7 +219,15 @@ MonoBehaviour:
   MaxSpeed: 5
   JumpForce: 1000
   GroundCheck: {fileID: 4000012789786640}
-  myInventory: {fileID: 0}
+  Life1: {fileID: 1000010962876066, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  Life2: {fileID: 1000013696502826, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  Life3: {fileID: 1000010411829216, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  livesLeft: 3
+  lostLife: 0
+  originalPosition: {x: 0, y: 0, z: 0}
+  hasKey: 0
+  DyingSound: {fileID: 8300000, guid: 42811fba5a7ea4300b10856e46c545ab, type: 3}
+  KeySound: {fileID: 8300000, guid: e2c53c96f55d640739b5bd86db405d2f, type: 3}
 --- !u!114 &114000013804936964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorIndex: 0
-  nextLevel: 
+  nextLevel: 2
+  DoorSound: {fileID: 8300000, guid: ec654750b4fe240f48167c084ce09dae, type: 3}
 --- !u!212 &212000013645893214
 SpriteRenderer:
   m_ObjectHideFlags: 1

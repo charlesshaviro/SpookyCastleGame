@@ -35,8 +35,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010066756040}
-  - 60: {fileID: 60000010062439302}
-  - 60: {fileID: 60000012228123972}
+  - 60: {fileID: 60000010718764086}
+  - 61: {fileID: 61000014288951320}
+  - 61: {fileID: 61000010300515724}
+  - 61: {fileID: 61000010101465800}
+  - 114: {fileID: 114000010151951402}
   m_Layer: 12
   m_Name: Small Rounded Platform
   m_TagString: MoveHorizontal
@@ -83,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011279405032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.4, y: -5.2, z: 0}
+  m_LocalPosition: {x: -12.84, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -131,27 +134,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010066756040}
   m_RootOrder: 0
---- !u!60 &60000010062439302
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011279405032}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5f9c37fb361d64b788498991d3de93d7, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: 0.7791767, y: 1.224308}
-      - {x: 3.533649, y: 1.2302184}
-      - {x: 3.0076141, y: 0.42132092}
-      - {x: 2.7128115, y: -0.23053789}
-      - {x: 0.39208698, y: -0.25414944}
-      - {x: -1.0211773, y: 1.265636}
---- !u!60 &60000012228123972
+--- !u!60 &60000010718764086
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -165,16 +148,70 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -0.79095745, y: 1.0719051}
-      - {x: 0.39978313, y: -0.21828794}
-      - {x: 2.7326317, y: -0.20968962}
-      - {x: 3.496233, y: 1.2195804}
-      - {x: 3.7069187, y: 1.2219563}
-      - {x: 3.5357466, y: 0.5070691}
-      - {x: 2.8408146, y: -0.6652069}
-      - {x: 0.32301426, y: -0.6652069}
-      - {x: -0.77318, y: 0.042923927}
-      - {x: -1.0469303, y: 1.2677534}
+    - - {x: 0, y: 1}
+      - {x: 3.7201138, y: 1.0370884}
+      - {x: 3.4843235, y: 0.2120533}
+      - {x: 2.7123365, y: -0.6690202}
+      - {x: 0.4684286, y: -0.72546816}
+      - {x: -0.7071419, y: 0.074216366}
+      - {x: -1.1062193, y: 1.0370884}
+--- !u!61 &61000010101465800
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011279405032}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -1.0267773, y: 1.1298428}
+  serializedVersion: 2
+  m_Size: {x: 0.1406362, y: 0.20031595}
+--- !u!61 &61000010300515724
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011279405032}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 3.6464481, y: 1.1379066}
+  serializedVersion: 2
+  m_Size: {x: 0.16450882, y: 0.20031571}
+--- !u!61 &61000014288951320
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011279405032}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5f9c37fb361d64b788498991d3de93d7, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 1.3095417, y: 1.1354046}
+  serializedVersion: 2
+  m_Size: {x: 4.534745, y: 0.20374393}
+--- !u!114 &114000010151951402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011279405032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aed2516eff984796a1c72c38b0a7d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: -1
+  movement: {x: 0, y: 0, z: 0}
+  xWidth: 3
+  yWidth: 0
 --- !u!212 &212000010400061228
 SpriteRenderer:
   m_ObjectHideFlags: 1
