@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Test Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Test Scripts\RaycastController.cs" />
      <Compile Include="Assets\Scripts\ZombieController.cs" />
+     <Compile Include="Assets\StoryScript.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

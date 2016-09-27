@@ -27,6 +27,8 @@ TagManager:
   - Life
   - StaticPlatform
   - Offscreen
+  - StoryPt2
+  - StoryPt1
   layers:
   - Default
   - TransparentFX

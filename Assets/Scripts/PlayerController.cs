@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 		} else if (livesLeft == 1) {
 			Life1.SetActive (false);
 		} else {
-			
+			// IF GAME OVER
 		}
 
 		AudioSource.PlayClipAtPoint (DyingSound, transform.position);
