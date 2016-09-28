@@ -3,23 +3,21 @@ using System.Collections;
 
 public class KeyController : MonoBehaviour {
 
+	public AudioClip KeySound;
 
-	public int KeyIndex;
 
-
-	// Use this for initialization
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.CompareTag ("MovingPlatform")) {
-			transform.parent = other.transform;
-		} 
+	// Plays sound and disappears/is picked up by player
+	public void PickUp(){
+		AudioSource.PlayClipAtPoint (KeySound, transform.position);
+		Destroy (this.gameObject);
 	}
+
 }

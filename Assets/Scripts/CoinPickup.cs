@@ -9,19 +9,8 @@ public class CoinPickup : MonoBehaviour {
 	{
 		// checks for Coin
 		if (other.gameObject.CompareTag ("Coin")) {
-
-
-			// figures out whether player has picked up a Gold or Silver coin, assigns respective ScoreIncrease
-			int ScoreIncease;
-			if (other.gameObject.GetComponent<Coin> ().CoinType == 0) {
-				ScoreIncease = 1;
-			} else {
-				ScoreIncease = 5;
-			}
-
-			//gameObject.GetComponent<Inventory>().Score += ScoreIncease;
-
-			Debug.Log ("you collected a coin !!!");
+			int coinValue = other.GetComponent<Coin> ().GetCoinValue ();
+			GetComponent<PlayerController> ().score += coinValue;
 			// gets rid of Coin
 			Destroy (other.gameObject);
 

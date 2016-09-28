@@ -7,19 +7,18 @@ public class LeverScript : MonoBehaviour {
 
 	public AudioClip LeverSound, MonsterSound;
 
-	public GameObject key;
+	public GameObject Key;
 
-	// Use this for initialization
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	
 	}
 
+	/** Flips to indicate the player has pulled the lever **/
 	void Flip(){
 		FacingOff = !FacingOff;
 		Vector3 TheScale = transform.localScale;
@@ -28,17 +27,16 @@ public class LeverScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		
 		if (other.gameObject.CompareTag ("Player") && FacingOff) {
 			Flip ();
-			key.SetActive (true);
-			GameObject monster = GameObject.FindGameObjectWithTag ("MonsterTrigger");
-			if (monster != null) {
-				//make him bigger
-				monster.transform.localScale = new Vector3 (10f, 10f, 0);
-				monster.transform.position += new Vector3 (0f, 0.7f, 0);
+			Key.SetActive (true);
+			GameObject Monster = GameObject.FindGameObjectWithTag ("MonsterTrigger");
+
+			if (Monster != null) {
+				Monster.GetComponent<MonsterController> ().Grow ();
 				AudioSource.PlayClipAtPoint (MonsterSound, transform.position);
 			} else {
-
 				AudioSource.PlayClipAtPoint (LeverSound, transform.position);
 			}
 		}

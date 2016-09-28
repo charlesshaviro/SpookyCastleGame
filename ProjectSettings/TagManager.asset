@@ -5,14 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - Crate
-  - Enemy
   - Wall
-  - Obstacle
-  - Bullet
-  - BombPickup
-  - ExplosionFX
-  - HealthBar
   - NextLevel
   - MovingPlatform
   - Key
@@ -27,8 +20,7 @@ TagManager:
   - Life
   - StaticPlatform
   - Offscreen
-  - StoryPt2
-  - StoryPt1
+  - OpenCage
   layers:
   - Default
   - TransparentFX

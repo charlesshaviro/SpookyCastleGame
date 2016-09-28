@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a2c8d97b86c974da986e4c773e5ded7e
+timeCreated: 1475066489
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - GroundCheck: {instanceID: 0}
+  - Life1: {fileID: 1000010962876066, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  - Life2: {fileID: 1000013696502826, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  - Life3: {fileID: 1000010411829216, guid: 78899c68aa2dd4c54bf2057d39ed143c, type: 2}
+  - DyingSound: {fileID: 8300000, guid: 42811fba5a7ea4300b10856e46c545ab, type: 3}
+  - KeySound: {fileID: 8300000, guid: e2c53c96f55d640739b5bd86db405d2f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

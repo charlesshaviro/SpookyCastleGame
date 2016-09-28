@@ -27,3 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSix.unity
   - enabled: 1
     path: Assets/Scenes/StoryScene.unity
+  - enabled: 1
+    path: Assets/Scenes/EasterEggLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/WinningScene.unity
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity

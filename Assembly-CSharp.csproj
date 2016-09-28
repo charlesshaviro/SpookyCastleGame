@@ -45,28 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CageController.cs" />
-     <Compile Include="Assets\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\CageController.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\MonsterController.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\CoinPickup.cs" />
-     <Compile Include="Assets\Scripts\DoorScript.cs" />
-     <Compile Include="Assets\Scripts\EasterEggDoor.cs" />
-     <Compile Include="Assets\Scripts\FallingPlatformScript.cs" />
-     <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\InventoryScript.cs" />
      <Compile Include="Assets\Scripts\KeyController.cs" />
-     <Compile Include="Assets\Scripts\KeyPickup.cs" />
      <Compile Include="Assets\Scripts\LeverScript.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\GameOverMenu.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\PauseMenuScript.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\StoryScript.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\WinScript.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
-     <Compile Include="Assets\Scripts\PlatformController.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\SimplePlatformController.cs" />
-     <Compile Include="Assets\Scripts\Test Scripts\Controller2D.cs" />
-     <Compile Include="Assets\Scripts\Test Scripts\PlatformControl.cs" />
-     <Compile Include="Assets\Scripts\Test Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\Test Scripts\PlayerInput.cs" />
-     <Compile Include="Assets\Scripts\Test Scripts\RaycastController.cs" />
-     <Compile Include="Assets\Scripts\ZombieController.cs" />
-     <Compile Include="Assets\StoryScript.cs" />
+     <Compile Include="Assets\Scripts\Platform Scripts\FallingPlatformScript.cs" />
+     <Compile Include="Assets\Scripts\Platform Scripts\PlatformController.cs" />
+     <Compile Include="Assets\Scripts\SecretDoorScript.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

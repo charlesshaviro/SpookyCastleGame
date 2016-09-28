@@ -3,8 +3,6 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour {
-
-	public int DoorIndex;
 	public int nextLevel;
 
 	public AudioClip DoorSound;
@@ -16,13 +14,12 @@ public class NextLevel : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag ("Door")) {
-			bool hasKey = GetComponent<PlayerController> ().hasKey;
+		if (other.gameObject.CompareTag ("Player")) {
+			bool hasKey = other.GetComponent<PlayerController> ().hasKey;
 			if (hasKey) {
 				StartCoroutine (WaitForLevel ());
 				hasKey = false;
 			}
-
 		}
 	}
 
